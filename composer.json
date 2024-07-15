@@ -1,0 +1,87 @@
+{
+    "name": "sikessem/skeleton",
+    "description": "📦️ Sikessem library builder template.",
+    "homepage": "https://sikessem.github.io/packages/skeleton",
+    "license": "MIT",
+    "keywords": [
+        "sikessem",
+        "package-skeleton",
+        "repository-template",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "SIGUI Kessé Emmanuel",
+            "email": "contact@sigui.ci",
+            "homepage": "https://sigui.ci"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/sikessem/skeleton",
+        "issues": "https://github.com/sikessem/skeleton/issues",
+        "chat": "https://github.com/orgs/sikessem/discussions"
+    },
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "sikessem/devtools": "^0.8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sikessem\\Skeleton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sikessem\\Skeleton\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --ansi --memory-limit=-1 --debug",
+        "check": "pint --test -v",
+        "debug": [
+            "@verify",
+            "@check",
+            "@analyse",
+            "@inspect",
+            "@review",
+            "@test"
+        ],
+        "init:tools": [
+            "psalm --init",
+            "rector init",
+            "pest --init"
+        ],
+        "fix": [
+            "@refactor",
+            "@improve",
+            "@format",
+            "@lint"
+        ],
+        "format": "psalter --issues=all",
+        "improve": "phpinsights fix",
+        "inspect": "psalm --no-diff",
+        "lint": "pint -v",
+        "test": "pest --colors=always",
+        "review": "rector --dry-run --debug",
+        "refactor": "rector",
+        "verify": "phpinsights analyse"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
